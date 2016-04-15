@@ -7,10 +7,12 @@ class Light1Controller < ApplicationController
 
   def on
     @serial.serial_puts(1)
+    render json: { light_1: "on" }
   end
 
   def off
     @serial.serial_puts(0)
+    render json: { light_1: "off" }
   end
 
   private
