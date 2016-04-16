@@ -6,12 +6,12 @@ class LightController < ApplicationController
   after_action :close_serial_communication
 
   def on
-    @serial.serial_puts(1)
+    @serial.serial_puts("0")
     render json: { light: "on" }
   end
 
   def off
-    @serial.serial_puts(0)
+    @serial.serial_puts("1")
     render json: { light: "off" }
   end
 
