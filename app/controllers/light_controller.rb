@@ -1,18 +1,18 @@
 #
 # Send order to Arduino through serial port
 #
-class Light1Controller < ApplicationController
+class LightController < ApplicationController
   before_action :open_serial_communication
   after_action :close_serial_communication
 
   def on
     @serial.serial_puts(1)
-    render json: { light_1: "on" }
+    render json: { light: "on" }
   end
 
   def off
     @serial.serial_puts(0)
-    render json: { light_1: "off" }
+    render json: { light: "off" }
   end
 
   private

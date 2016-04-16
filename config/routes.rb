@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  # Routes to turn light_1 on and off
-  get 'light_1/on'
-  get 'light_1/off'
+  # Routes to turn light on and off
+  get 'light/on'
+  get 'light/off'
 
 end
