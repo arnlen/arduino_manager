@@ -1,5 +1,5 @@
 #
-# Send order to Arduino through serial port
+# Toggle a light on/off through serial port
 #
 class LightController < ApplicationController
 
