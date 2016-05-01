@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  def camera
+  def live
   end
 
 end

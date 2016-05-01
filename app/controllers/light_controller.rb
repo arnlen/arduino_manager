@@ -4,11 +4,11 @@
 class LightController < ApplicationController
 
   def on
-    Arduino::SERIAL.serial_puts("0")
+    LightService.turn_on(params[:light_id])
   end
 
   def off
-    Arduino::SERIAL.serial_puts("1")
+    LightService.turn_off(params[:light_id])
   end
 
 end
