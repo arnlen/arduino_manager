@@ -1,9 +1,9 @@
-# Rails Light Manager - From Raspberry to Arduino through serial
+# From Raspberry to Arduino through serial
 
 Rails app dedicated to receive data, and transmit it to an Arduino, through USB-serial port.
-The Arduino board would control the light.
+The Arduino board would control the world: lights, LCD, motors, etc.
 
-**Goal**: Turn my light on and off.
+**First goal**: Turn my light on and off.
 
 This project is designed to work on a Raspberry Pi, with this [Arduino sketch](https://github.com/arnlen/relay_control_from_serial).
 
