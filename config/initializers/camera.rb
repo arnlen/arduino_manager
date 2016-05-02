@@ -1,5 +1,5 @@
 # Camera live footage URL
 
 module Camera
-  URL = "http://localhost:2900"
+  URL = "http://localhost:8081"
 end
