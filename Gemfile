@@ -11,6 +11,9 @@ gem 'jquery-rails'
 
 gem 'turbolinks'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+gem "bootstrap-switch-rails"         # Great switch button by Bootstrap
+
 # gem 'wiringpi2',      '~> 2.0'     # Version 2.x of Gordon Henderson's Arduino-like WiringPi GPIO functions, wrapped up for Ruby.
 
 group :development, :test do
