@@ -1,4 +1,6 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$("[name='my-checkbox']").bootstrapSwitch();
+$(){
+  $("[name='my-checkbox']").bootstrapSwitch();
+};
