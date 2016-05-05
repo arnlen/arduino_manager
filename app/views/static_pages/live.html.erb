@@ -1,9 +1,9 @@
 <h1>Live stream</h1>
 
 <div class="iframe_container">
-  <!-- <iframe src="<%= Camera::URL %>">
+  <iframe src="<%= Camera::URL %>" height="600" width="800">
     <p>Camera live stream should be diplayed here. Sadly it isn't.</p>
-  </iframe> -->
+  </iframe>
 </div>
 
 <h1>Actions</h1>
@@ -11,9 +11,8 @@
 <h2>Display text</h2>
 
 <%= form_tag(lcd_write_path, remote: true) do %>
-  <%= text_field_tag('text_to_display', nil, placeholder: 'Texte à envoyer sur le LCD') %>
-  <br>
-  <%= submit_tag("Envoyer") %>
+  <%= text_field_tag('text_to_display', nil, class: "form-control", placeholder: 'Texte à envoyer sur le LCD') %>
+  <%= submit_tag("Envoyer", class: "btn btn-primary") %>
 <% end %>
 
 <h2>Turn light on/off</h2>
