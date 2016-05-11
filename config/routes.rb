@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   post 'lcd/write'
 
+  # Sensors
+  get 'sensors/temperature'
+
 end
