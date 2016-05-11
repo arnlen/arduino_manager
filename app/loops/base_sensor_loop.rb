@@ -1,4 +1,4 @@
-class BaseLoop
+class BaseSensorLoop
 
   def initialize(sleep_period: 10)
     Thread.new do
