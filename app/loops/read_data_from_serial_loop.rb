@@ -1,9 +1,6 @@
 #
 # Read data from Arduino sent through serial
 #
-# Data format enforces the following JSON:
-# {"temperature": "13.8"},{"pressure": "1013"},
-#
 class ReadDataFromSerialLoop
 
   def initialize(:sleep_period)
@@ -19,7 +16,7 @@ class ReadDataFromSerialLoop
 
   def read_data
     while data_available?
-      Loop::RAW_SERIAL_DATA += Arduino::SERIAL.serial_getchar
+      Loop::RAW_SERIAL_DATA << Arduino::SERIAL.serial_getchar
     end
   end
 
