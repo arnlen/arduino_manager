@@ -16,14 +16,10 @@ class ReadDataFromSerialLoop
   private
 
   def read_data
-    while data_available?
-      Loop::RAW_SERIAL_DATA << Arduino::SERIAL.serial_getchar
+    while raw_data = Arduino::SERIAL.read(1000) && raw_data.present?
+      Loop::RAW_SERIAL_DATA << raw_data
     end
-    Rails.logger.info "New data received from serial"
-  end
-
-  def data_available?
-    Arduino::SERIAL.serial_data_avail > 0
+    Rails.logger.info "New data received from serial: #{raw_data}"
   end
 
 end
