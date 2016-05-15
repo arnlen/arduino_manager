@@ -3,7 +3,7 @@
 #
 class PersistDataLoop
 
-  def initialize(:sleep_period)
+  def initialize(sleep_period:)
     Thread.new do
       while true
         sleep(sleep_period)

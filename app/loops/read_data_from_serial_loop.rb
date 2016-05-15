@@ -3,7 +3,7 @@
 #
 class ReadDataFromSerialLoop
 
-  def initialize(:sleep_period)
+  def initialize(sleep_period:)
     Rails.logger.info "Initialize #{self.to_s}"
     Thread.new do
       while true
