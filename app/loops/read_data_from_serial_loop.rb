@@ -4,6 +4,7 @@
 class ReadDataFromSerialLoop
 
   def initialize(:sleep_period)
+    Rails.logger.info "Initialize #{self.to_s}"
     Thread.new do
       while true
         sleep(sleep_period)
@@ -18,6 +19,7 @@ class ReadDataFromSerialLoop
     while data_available?
       Loop::RAW_SERIAL_DATA << Arduino::SERIAL.serial_getchar
     end
+    Rails.logger.info "New data received from serial"
   end
 
   def data_available?

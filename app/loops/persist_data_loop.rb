@@ -18,7 +18,7 @@ class PersistDataLoop
     while !Loop::DATA_TO_PERSIST.empty?
       data_to_persist = Loop::RAW_SERIAL_DATA.pop
 
-      Rails.logger.debug("Persist #{data_to_persist}")
+      Rails.logger.debug(">>> Persist #{data_to_persist}")
     end
   end
 

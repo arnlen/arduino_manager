@@ -8,6 +8,7 @@
 class ParseRawDataLoop
 
   def initialize(:sleep_period)
+    Rails.logger.info "Initialize #{self.to_s}"
     Thread.new do
       while true
         sleep(sleep_period)
@@ -21,6 +22,8 @@ class ParseRawDataLoop
   def parse_raw_data
     collect_raw_data_string
     data_array = create_data_array
+
+    Rails.logger.info "Data array: #{data_array}"
 
     data_array.each do |data_json|
       begin
@@ -36,6 +39,7 @@ class ParseRawDataLoop
     while !Loop::RAW_SERIAL_DATA.empty?
       raw_data_string += Loop::RAW_SERIAL_DATA.pop
     end
+    Rails.logger.info "Raw data string: #{raw_data_string}"
   end
 
   def create_data_array
