@@ -5,6 +5,8 @@ class PersistDataLoop
 
   def initialize(sleep_period:)
     Thread.new do
+      puts "[init] #{self.class.to_s} started!"
+
       while true
         sleep(sleep_period)
         persist_data
@@ -15,10 +17,9 @@ class PersistDataLoop
   private
 
   def persist_data
-    while !Loop::DATA_TO_PERSIST.empty?
-      data_to_persist = Loop::RAW_SERIAL_DATA.pop
-
-      Rails.logger.debug(">>> Persist #{data_to_persist}")
+    unless Loop::DATA_TO_PERSIST.empty?
+      data_to_persist = Loop::DATA_TO_PERSIST.pop
+      Rails.logger.debug("[#{self.class.to_s}] Persist: #{data_to_persist}")
     end
   end
 

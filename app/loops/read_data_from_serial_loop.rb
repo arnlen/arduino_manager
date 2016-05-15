@@ -8,8 +8,9 @@
 class ReadDataFromSerialLoop
 
   def initialize(sleep_period:)
-    Rails.logger.info "Initialize #{self.to_s}"
     Thread.new do
+      puts "[init] #{self.class.to_s} started!"
+
       while true
         sleep(sleep_period)
         read_data
@@ -26,15 +27,14 @@ class ReadDataFromSerialLoop
 
   def parse_raw_data(raw_data)
     raw_data.delete!("\r\n").gsub!("'","\"")
-    Rails.logger.info "New data received from serial: #{raw_data}"
+    Rails.logger.debug("[#{self.class.to_s}] New data received: #{raw_data}")
 
     begin
       parsed_data = JSON.parse(raw_data)
       Loop::DATA_TO_PERSIST << parsed_data
-      Rails.logger.info "Ready to persist: #{parsed_data}"
+      Rails.logger.debug("[#{self.class.to_s}] Ready to persist: #{parsed_data}")
     rescue JSON::ParserError => e
-      Rails.logger.error("#{e.class} #{e.message} : Invalid JSON format",
-                        { invalid_data: raw_data })
+      Rails.logger.debug("#{e.class}, #{e.message}")
     end
   end
 
