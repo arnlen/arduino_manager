@@ -7,8 +7,6 @@ module Loop
   DATA_TO_PERSIST = Queue.new
 
   ReadDataFromSerialLoop.new(sleep_period: DEFAULT_SLEEP_PERIOD)
-  ParseRawDataLoop.new(sleep_period: DEFAULT_SLEEP_PERIOD)
-
   PersistDataLoop.new(sleep_period: DEFAULT_SLEEP_PERIOD)
 
 end
